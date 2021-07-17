@@ -57,10 +57,8 @@ int jogo() {
 		}                 // Animação da vitória
 		if(vitoria){ 
             Sleep(700); 
-            system("color e5"); 
             printf(" Completado "); 
             Sleep(500); 
-            system("color 62"); 
         }
 	}
 }
@@ -85,9 +83,6 @@ void show(){
                     printf("     %d ", tabuleiro[i][j]);
                 }
 			}             // Confere se o jogo foi terminado
-			if(j + i < 6 && tabuleiro[i][j] != i * 4 + j + 65){
-                vitoria = 0;
-            } 
 		}
 		printf("\n\n");
 	}

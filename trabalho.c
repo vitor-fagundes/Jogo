@@ -2,16 +2,21 @@
 #include <stdlib.h>
 #include <windows.h>
 
-int x = 0, y = 0, vitoria;
+int x = 0, y = 0, vitoria = 0;
 
-int tabuleiro[4][4] = {8, 11,  1, 7,
-                      12,  5,  2, 6,
-                      10,  9,  4, 15,
-                       3, 13, 14, 0};
+//int tabuleiro[4][4] = {8, 11,  1, 7,
+//                     12,  5,  2, 6,
+//                      10,  9,  4, 15,
+//                       3, 13, 14, 0};
 
-int jogo() {
+int tabuleiro[4][4] = {1, 2, 3, 4,
+                       5, 6, 7, 8,
+                       9, 10, 11, 0,
+                       13, 14, 15, 12};                       
+
+void jogo() {
     show();
-    while(!GetAsyncKeyState(VK_ESCAPE))	{          //Movimenta as chaves
+    while(!GetAsyncKeyState(VK_ESCAPE) && vitoria == 0)	{          //Movimenta as chaves
 		if(GetAsyncKeyState(VK_LEFT) != 0 && x > 0){ 
             x--; 
             show(); 
@@ -52,20 +57,23 @@ int jogo() {
 					}
 				}
 			}
-			printf("%c",7);
-			show();
-		}                 // Animação da vitória
-		if(vitoria){ 
-            Sleep(700); 
-            printf(" Completado "); 
-            Sleep(500); 
-        }
+			//printf("%c",7);
+            show();
+		}
+        if(tabuleiro[0][0] == 1 && tabuleiro[0][1] == 2 && tabuleiro[0][2] == 3 && tabuleiro[0][3] == 4 &&
+               tabuleiro[1][0] == 5 && tabuleiro[1][1] == 6 && tabuleiro[1][2] == 7 && tabuleiro[1][3] == 8 && 
+               tabuleiro[2][0] == 9 && tabuleiro[2][1] == 10 && tabuleiro[2][2] == 11 && tabuleiro[2][3] == 12 &&
+               tabuleiro[3][0] == 13 && tabuleiro[3][1] == 14 && tabuleiro[3][2] == 15 && tabuleiro[3][3] == 0){
+                vitoria = 1;
+                printf("\n\n Parabens! Jogo finalizado. "); 
+                Sleep(2000); 
+                
+        }                     
 	}
 }
 
 void show(){
 	system("cls");       
-	vitoria = 1;
 	printf("    ________________________\n\n");
 
 	for(int i = 0; i < 4; i++){
@@ -82,12 +90,13 @@ void show(){
                 } else {
                     printf("     %d ", tabuleiro[i][j]);
                 }
-			}             // Confere se o jogo foi terminado
+			}
 		}
 		printf("\n\n");
 	}
 	printf("    ________________________\n");
 	Sleep(100);
+
 }
 
 void telaCadastro() {
@@ -108,5 +117,8 @@ int main() {
     telaCadastro();
     jogo();
     
+    
+    printf("fim");
+
     return 0;
 }

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <windows.h>
 
-int x = 0, y = 0, vitoria = 0;
+int x = 0, y = 0, vitoria = 0, contador = 0;
 
 //int tabuleiro[4][4] = {8, 11,  1, 7,
 //                     12,  5,  2, 6,
@@ -59,6 +59,7 @@ void jogo() {
 			}
 			//printf("%c",7);
             show();
+            contador++;
 		}
         if(tabuleiro[0][0] == 1 && tabuleiro[0][1] == 2 && tabuleiro[0][2] == 3 && tabuleiro[0][3] == 4 &&
                tabuleiro[1][0] == 5 && tabuleiro[1][1] == 6 && tabuleiro[1][2] == 7 && tabuleiro[1][3] == 8 && 
@@ -66,6 +67,7 @@ void jogo() {
                tabuleiro[3][0] == 13 && tabuleiro[3][1] == 14 && tabuleiro[3][2] == 15 && tabuleiro[3][3] == 0){
                 vitoria = 1;
                 printf("\n\n Parabens! Jogo finalizado. "); 
+                printf("Numero de jogadas: %d", contador);
                 Sleep(2000); 
                 
         }                     
@@ -118,7 +120,7 @@ int main() {
     jogo();
     
     
-    printf("fim");
+    printf("\n\nfim\n\n");
 
     return 0;
 }

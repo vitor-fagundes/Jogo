@@ -121,7 +121,7 @@ int main() {
 
     jogador.contador = 0;
 
-    printf("Seja bem vindo ao Jogo do 15\n\nUtilize as setas para movimentar as chaves e espaco para movimentar as peças para o espaco em branco.\n\nPressione Enter para continuar...");
+    printf("Seja bem vindo ao Jogo do 15\n\nUtilize as setas para movimentar as chaves e espaco para movimentar as pecas para o espaco em branco.\n\nPressione Enter para continuar...");
     getchar();
     system("cls");    
     printf("\nDigite seu nome: ");

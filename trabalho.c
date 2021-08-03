@@ -14,7 +14,7 @@ int tabuleiro[4][4] = {1, 2, 3, 4,
 
 int jogo(contador) {
     mostrarTabuleiro(contador);
-    while(!GetAsyncKeyState(VK_ESCAPE) && vitoria == 0)	{          //Movimenta as chaves
+    while(!GetAsyncKeyState(VK_ESCAPE) && vitoria == 0)	{          
 		if(GetAsyncKeyState(VK_LEFT) != 0 && x > 0){ 
             x--; 
             mostrarTabuleiro(contador); 
@@ -31,7 +31,7 @@ int jogo(contador) {
             y--; 
             mostrarTabuleiro(contador); 
         }
-		        //Troca as peças
+		        
 		if(GetAsyncKeyState(VK_SPACE)!= 0){
 			for(int i = 0; i < 4; i++){
 				for(int j = 0; j < 4; j ++){
